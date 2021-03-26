@@ -11,7 +11,6 @@ import org.apache.flink.streaming.api.scala.{ConnectedStreams, DataStream, Strea
  *               DataStream<String> otherStream = //...
  *               ConnectedStreams<Integer, String> connectedStreams = someStream.connect(otherStream);
  *               CoMap CoFlat:Similar to map and flatMap on a connected data stream
- *
  ******************************************************************************/
 object ConnectAndCoMapAndCoFlatMapOperator {
 

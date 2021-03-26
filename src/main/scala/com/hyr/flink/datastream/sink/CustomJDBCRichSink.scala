@@ -22,7 +22,7 @@ import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
  *               duration varchar(255)
  *               )
  * *****************************************************************************/
-object CustomJDBCSink {
+object CustomJDBCRichSink {
 
   def main(args: Array[String]): Unit = {
     val streamEnv: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
@@ -38,6 +38,11 @@ object CustomJDBCSink {
 
 }
 
+/**
+ * 除了用户自定义的 function（map，reduce 等），Rich functions 还提供了四个方法：open、close、getRuntimeContext 和 setRuntimeContext。
+ * 这些方法对于参数化 function （参阅 给 function 传递参数）， 创建和最终确定本地状态，访问广播变量（参阅 广播变量），
+ * 以及访问运行时信息，例如累加器和计数器（参阅 累加器和计数器），以及迭代器的相关信息（参阅 迭代器） 有很大作用。
+ */
 class MyCustomJDBCSink extends RichSinkFunction[StationLog] {
   var conn: Connection = _
   var pst: PreparedStatement = _
