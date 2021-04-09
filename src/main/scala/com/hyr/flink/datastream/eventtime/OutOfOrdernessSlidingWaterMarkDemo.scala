@@ -1,7 +1,10 @@
 package com.hyr.flink.datastream.eventtime
 
+import java.text.SimpleDateFormat
+
 import com.hyr.flink.common.StationLog
-import com.hyr.flink.datastream.source.MyCustomSource
+import com.hyr.flink.common.watermarkgenerator.BoundedOutOfOrdernessGenerator
+import org.apache.flink.api.common.eventtime._
 import org.apache.flink.api.common.functions.ReduceFunction
 import org.apache.flink.streaming.api.scala.function.WindowFunction
 import org.apache.flink.streaming.api.scala.{StreamExecutionEnvironment, _}
@@ -10,21 +13,40 @@ import org.apache.flink.streaming.api.windowing.time.Time
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 import org.apache.flink.util.Collector
 
+
 /** *****************************************************************************
  *
  * @date 2021-04-01 3:30 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
- * @Description: 有序的数据流处理
+ * @Description: 滑动窗口的无序的数据流处理。 注：WaterMark只是决定数据窗口是否进行延迟触发。
  ******************************************************************************/
-object OrdernessWaterMarkDemo {
+object OutOfOrdernessSlidingWaterMarkDemo {
 
   def main(args: Array[String]): Unit = {
     val streamEnv: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
+    // 多并行度会自动对齐WaterMark，取最小的WaterMark。避免干扰，将并行度设为1
+    streamEnv.setParallelism(1)
+    // 周期性的引入WaterMark 间隔100毫秒
+    streamEnv.getConfig.setAutoWatermarkInterval(1000)
+
     //读取数据源
-    val stream: DataStream[StationLog] = streamEnv.addSource(new MyCustomSource)
+    //  val stream: DataStream[StationLog] = streamEnv.addSource(new MyCustomSource)
+    val stream: DataStream[StationLog] = streamEnv.socketTextStream("127.0.0.1", 8888)
+      .map(line => {
+        val arr = line.split(",")
+        StationLog(arr(0).trim, arr(1).trim, arr(2).trim, arr(3).trim, arr(4).trim.toLong, arr(5).trim.toLong)
+      })
+
+    // 周期性/间断性
+    val data = stream.assignAscendingTimestamps(_.callTime).assignTimestampsAndWatermarks(new WatermarkStrategy[StationLog] {
+      override def createWatermarkGenerator(context: WatermarkGeneratorSupplier.Context): WatermarkGenerator[StationLog] = {
+        // 最长延迟10秒
+        new BoundedOutOfOrdernessGenerator(10 * 1000L)
+      }
+    })
 
     // 有序的情况,为数据流中的元素分配时间戳，并定期创建水印以表示事件时间进度。 设置事件时间
-    val result = stream.assignAscendingTimestamps(_.callTime)
+    val result = data
       // 通话成功的记录
       .filter(_.callType.equals("success"))
       .keyBy(_.sid)
@@ -56,7 +78,7 @@ object OrdernessWaterMarkDemo {
     override def apply(key: String, window: TimeWindow, input: Iterable[StationLog], out: Collector[String]): Unit = {
       val sb = new StringBuilder
       val stationLog = input.iterator.next()
-      sb.append("窗口范围是:").append(window.getStart).append("---").append(window.getEnd)
+      sb.append("当前时间:").append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(System.currentTimeMillis())).append("  窗口范围是:").append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(window.getStart)).append("---").append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(window.getEnd))
         .append("\n")
         .append("value:").append(stationLog)
       out.collect(sb.toString())
@@ -64,3 +86,7 @@ object OrdernessWaterMarkDemo {
   }
 
 }
+
+
+
+

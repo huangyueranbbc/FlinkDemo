@@ -46,7 +46,7 @@ class MyCustomSource extends SourceFunction[StationLog] {
         val callOut = "1860000%04d".format(r.nextInt(10000)) //主叫号码
         val callIn = "1890000%04d".format(r.nextInt(10000)) //被叫号码
         //生成一条数据 可能会有1分钟的延迟
-        StationLog("station_" + r.nextInt(10), callOut, callIn, types(r.nextInt(4)), System.currentTimeMillis() - Random.nextInt(1000 * 60) + Random.nextInt(1000 * 10), r.nextInt(20))
+        StationLog("station_" + r.nextInt(10), callOut, callIn, types(r.nextInt(4)), System.currentTimeMillis() - Random.nextInt(1000  * 60) + Random.nextInt(1000 * 10), r.nextInt(20))
       }).foreach(sourceContext.collect) //发送数据到流
       Thread.sleep(2000) //每隔2秒发送一次数据
     }
