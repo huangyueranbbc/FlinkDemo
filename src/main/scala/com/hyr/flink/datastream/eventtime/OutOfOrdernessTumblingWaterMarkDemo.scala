@@ -8,7 +8,7 @@ import org.apache.flink.api.common.eventtime._
 import org.apache.flink.api.common.functions.ReduceFunction
 import org.apache.flink.streaming.api.scala.function.WindowFunction
 import org.apache.flink.streaming.api.scala.{StreamExecutionEnvironment, _}
-import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows
+import org.apache.flink.streaming.api.windowing.assigners.{TumblingEventTimeWindows, TumblingProcessingTimeWindows}
 import org.apache.flink.streaming.api.windowing.time.Time
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 import org.apache.flink.util.Collector
@@ -31,15 +31,15 @@ object OutOfOrdernessTumblingWaterMarkDemo {
    *
    * 输入数据窗口在【2021-04-08 04:17:00 ~ 2021-04-08 04:17:20】窗口的数据，此时最大事件时间未更新，不触发计算。
    * 窗口结束时间：1617826640000
-   * 输入项：station_4,18600001941,18900003949,success,1617826620000,0
-   * 输入项：station_4,18600001941,18900003949,success,1617826625000,21
-   * 输入项：station_4,18600001941,18900003949,success,1617826630000,32
-   * 输入项：station_4,18600001941,18900003949,success,1617826635000,34
+   * 输入项：station_4,18600001941,18900003949,success,1617826630000,0
+   * 输入项：station_4,18600001941,18900003949,success,1617826635000,21
+   * 输入项：station_4,18600001941,18900003949,success,1617826640000,32
+   * 输入项：station_4,18600001941,18900003949,success,1617826645000,34
    *
-   * 输入新数据2021-04-08 04:17:31，此时更新最大事件时间，且【2021-04-08 04:17:00 ~ 2021-04-08 04:17:20】的窗口结束时间(1617826640000)<=watermarkTime(1617826641000)
-   * watermarkTime=1617826651000-10000=1617826641000
-   * 输入项：station_4,18600001941,18900003949,success,1617826651000,0
-   * 触发【2021-04-08 04:17:00 ~ 2021-04-08 04:17:20】窗口的计算。
+   * 输入新数据2021-04-08 04:17:31，此时更新最大事件时间，且【2021-04-08 04:17:10 ~ 2021-04-08 04:17:30】的窗口结束时间(1617826650000)<=watermarkTime(1617826660000)
+   * watermarkTime=1617826660000-10000=1617826650000
+   * 输入项：station_4,18600001941,18900003949,success,1617826660000,0
+   * 触发【2021-04-08 04:17:10 ~ 2021-04-08 04:17:30】窗口的计算。
    * 得到station_4,18600001941,18900003949,success,1617826635000,34
    */
   def main(args: Array[String]): Unit = {
@@ -71,7 +71,7 @@ object OutOfOrdernessTumblingWaterMarkDemo {
       .filter(_.callType.equals("success"))
       .keyBy(_.sid)
       // 每隔10秒统计最近20秒内，每个基站通话时间最长的一次通话记录的基站的id、通话时长、呼叫时间 (毫秒)，已经当前发生的时间范围(20秒)  窗口范围左闭右开 延迟的数据会丢掉
-      .window(TumblingProcessingTimeWindows.of(Time.seconds(20)))
+      .window(TumblingEventTimeWindows.of(Time.seconds(20)))
       .reduce(new MyReduceWindowFunction(), new ReturnMaxCallTimeStationLogWindowFunction)
 
     result.print()
