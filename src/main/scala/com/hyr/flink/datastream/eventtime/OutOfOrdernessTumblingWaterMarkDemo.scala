@@ -19,7 +19,7 @@ import org.apache.flink.util.Collector
  * @date 2021-04-01 3:30 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 滚动窗口的无序的数据流处理。 注：WaterMark只是决定数据窗口是否进行延迟触发。
- ******************************************************************************/
+ * *****************************************************************************/
 object OutOfOrdernessTumblingWaterMarkDemo {
 
   /**
@@ -71,7 +71,8 @@ object OutOfOrdernessTumblingWaterMarkDemo {
       .filter(_.callType.equals("success"))
       .keyBy(_.sid)
       // 每隔10秒统计最近20秒内，每个基站通话时间最长的一次通话记录的基站的id、通话时长、呼叫时间 (毫秒)，已经当前发生的时间范围(20秒)  窗口范围左闭右开 延迟的数据会丢掉
-      .window(TumblingEventTimeWindows.of(Time.seconds(20)))
+      .window(TumblingEventTimeWindows.of(Time.seconds(20))) // 使用事件时间
+      //.window(TumblingProcessingTimeWindows.of(Time.seconds(20))) // 使用处理时间
       .reduce(new MyReduceWindowFunction(), new ReturnMaxCallTimeStationLogWindowFunction)
 
     result.print()
