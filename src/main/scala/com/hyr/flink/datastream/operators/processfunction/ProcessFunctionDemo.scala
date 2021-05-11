@@ -28,7 +28,7 @@ object ProcessFunctionDemo {
         StationLog(arr(0).trim, arr(1).trim, arr(2).trim, arr(3).trim, arr(4).trim.toLong, arr(5).trim.toLong)
       })
 
-    val result = stream.keyBy(_.callInt).process(new CallInFailMonitorProcess)
+    val result = stream.keyBy(_.callIn).process(new CallInFailMonitorProcess)
     result.print()
 
     streamEnv.execute(this.getClass.getName)

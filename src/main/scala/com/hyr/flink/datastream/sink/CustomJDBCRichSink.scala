@@ -50,7 +50,7 @@ class MyCustomJDBCSink extends RichSinkFunction[StationLog] {
   override def invoke(value: StationLog, context: SinkFunction.Context): Unit = {
     pst.setString(1, value.sid)
     pst.setString(2, value.callOut)
-    pst.setString(3, value.callInt)
+    pst.setString(3, value.callIn)
     pst.setString(4, value.callType)
     pst.setLong(5, value.callTime)
     pst.setLong(6, value.duration)

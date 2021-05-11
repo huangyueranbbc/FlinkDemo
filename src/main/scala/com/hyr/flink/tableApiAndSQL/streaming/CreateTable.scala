@@ -7,12 +7,11 @@ import org.apache.flink.table.descriptors.Schema
 
 /** *****************************************************************************
  *
- * @date 2021-04-23 1:57 下午 
+ * @date 2021-05-12 1:57 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description:
  ******************************************************************************/
 object CreateTable {
-
 
   def main(args: Array[String]): Unit = {
     val streamEnv: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
@@ -26,7 +25,7 @@ object CreateTable {
       """create table station(
                             sid varchar,
                             callOut varchar,
-                            callInt varchar,
+                            callIn varchar,
                             callType varchar,
                             callTime bigint,
                             duration bigint
@@ -43,7 +42,7 @@ object CreateTable {
     val schema = new Schema()
       .field("sid", DataTypes.STRING())
       .field("callOut", DataTypes.STRING())
-      .field("callInt", DataTypes.STRING())
+      .field("callIn", DataTypes.STRING())
       .field("callType", DataTypes.STRING())
       .field("callTime", DataTypes.BIGINT())
       .field("duration", DataTypes.BIGINT())

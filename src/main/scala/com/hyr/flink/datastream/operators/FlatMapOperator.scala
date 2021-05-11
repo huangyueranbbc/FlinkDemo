@@ -18,7 +18,7 @@ object FlatMapOperator {
     val streamEnv = StreamExecutionEnvironment.getExecutionEnvironment
     import org.apache.flink.api.scala._
     val dataStream: DataStream[StationLog] = streamEnv.addSource(new MyCustomSource)
-    val result: DataStream[Any] = dataStream.flatMap(t => ArrayBuffer(t.sid, t.callInt, t.callOut, t.callTime, t.callType, t.duration))
+    val result: DataStream[Any] = dataStream.flatMap(t => ArrayBuffer(t.sid, t.callIn, t.callOut, t.callTime, t.callType, t.duration))
 
     result.print()
 
