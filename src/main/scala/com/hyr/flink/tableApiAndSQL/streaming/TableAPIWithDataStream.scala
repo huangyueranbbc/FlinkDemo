@@ -10,8 +10,10 @@ import org.apache.flink.types.Row
  *
  * @date 2021-05-11 1:57 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
- * @Description: Table API
- ******************************************************************************/
+ * @Description: Table API 表值函数
+ *               跟自定义标量函数一样，自定义表值函数的输入参数也可以是 0 到多个标量。但是跟标量函数只能返回一个值不同的是，它可以返回任意多行。
+ *               返回的每一行可以包含 1 到多列，如果输出行只包含 1 列，会省略结构化信息并生成标量值，这个标量值在运行阶段会隐式地包装进行里。
+ * *****************************************************************************/
 object TableAPIWithDataStream {
 
   def main(args: Array[String]): Unit = {

@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat
 
 import com.hyr.flink.common.StationLog
 import org.apache.flink.api.common.eventtime.{Watermark, WatermarkGenerator, WatermarkOutput}
+import org.slf4j.{Logger, LoggerFactory}
 
 /**
  * 自定义周期性 Watermark 生成器
@@ -11,6 +12,8 @@ import org.apache.flink.api.common.eventtime.{Watermark, WatermarkGenerator, Wat
  * 即某个最新到达的时间戳为 t 的元素将在最早到达的时间戳为 t 的元素之后最多 n 毫秒到达。
  */
 class BoundedOutOfOrdernessGenerator(_maxOutOfOrderness: Long) extends WatermarkGenerator[StationLog] {
+
+  private val log: Logger = LoggerFactory.getLogger(BoundedOutOfOrdernessGenerator.super.getClass)
 
   // 最大延迟间隔 n
   private val maxOutOfOrderness: Long = _maxOutOfOrderness
@@ -27,14 +30,14 @@ class BoundedOutOfOrdernessGenerator(_maxOutOfOrderness: Long) extends Watermark
    * @param output         输出水印
    */
   override def onEvent(event: StationLog, eventTimestamp: Long, output: WatermarkOutput): Unit = {
-    println("callTime:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(event.callTime))
+    log.debug("callTime:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(event.callTime))
     currentMaxEventTimestamp = currentMaxEventTimestamp.max(event.callTime)
     // 记录最大事件时间
-    println("currentMaxTimestamp:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(currentMaxEventTimestamp))
-    println("currentMaxTimestamp:" + currentMaxEventTimestamp)
+    log.debug("currentMaxTimestamp:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(currentMaxEventTimestamp))
+    log.debug("currentMaxTimestamp:" + currentMaxEventTimestamp)
     val watermarkTime = currentMaxEventTimestamp - maxOutOfOrderness
-    println("watermarkTime:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(watermarkTime))
-    println("watermarkTime:" + watermarkTime)
+    log.debug("watermarkTime:" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(watermarkTime))
+    log.debug("watermarkTime:" + watermarkTime)
   }
 
   override def onPeriodicEmit(output: WatermarkOutput): Unit = {
