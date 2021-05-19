@@ -1,4 +1,4 @@
-package com.hyr.flink.tableApiAndSQL.streaming
+package com.hyr.flink.tableapi.streaming
 
 import com.hyr.flink.common.StationLog
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
@@ -45,7 +45,7 @@ object TableAPIWithDataStream {
     dataStreamOnAppend.print()
 
     // INSERT为true DELETE为false
-    val tableResult1 = table.groupBy($"id").select($"id", $("id").count().as("log_count"))
+    val tableResult1: Table = table.groupBy($"id").select($"id", $("id").count().as("log_count"))
     val dataStreamOnRetract: DataStream[(Boolean, Row)] = tableEnv.toRetractStream[Row](tableResult1)
     dataStreamOnRetract.print()
 

@@ -1,4 +1,4 @@
-package com.hyr.flink.tableApiAndSQL.blink
+package com.hyr.flink.tableapi.blink
 
 import com.hyr.flink.common.customfunction.HashFunction
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment

@@ -1,4 +1,4 @@
-package com.hyr.flink.tableApiAndSQL.streaming
+package com.hyr.flink.tableapi.streaming
 
 import com.hyr.flink.common.customfunction.MyFlatMapFunction
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
