@@ -8,12 +8,12 @@ import org.apache.flink.streaming.api.windowing.windows.GlobalWindow
 
 import scala.collection.mutable
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-30 2:22 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 全局窗口
- * *****************************************************************************/
+ */
 object GlobalWindow {
 
 

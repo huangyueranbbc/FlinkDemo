@@ -10,12 +10,12 @@ import org.apache.flink.streaming.api.functions.sink.filesystem.StreamingFileSin
 import org.apache.flink.streaming.api.functions.sink.filesystem.rollingpolicies.DefaultRollingPolicy
 import org.apache.flink.streaming.api.scala._
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-13 5:14 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 流处理的文件sink
- * *****************************************************************************/
+ */
 object MyStreamingFileSink {
 
   def main(args: Array[String]): Unit = {

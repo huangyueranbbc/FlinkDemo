@@ -7,7 +7,7 @@ import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTime
 import org.apache.flink.streaming.api.windowing.time.Time
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-30 9:34 上午
  * @author: <a href=mailto:huangyr>huangyr</a>
@@ -20,7 +20,7 @@ import org.apache.flink.streaming.api.windowing.windows.TimeWindow
  *               [.sideOutputLateData(...)] <-  optional: "output tag" (else no side output for late data)
  *               .reduce/aggregate/fold/apply()      <-  required: "function"
  *               [.getSideOutput(...)]      <-  optional: "output tag"
- ******************************************************************************/
+ */
 
 object TumblingWindow {
 

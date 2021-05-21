@@ -7,12 +7,12 @@ import org.apache.flink.streaming.api.functions.ProcessFunction
 import org.apache.flink.streaming.api.scala.{DataStream, OutputTag, StreamExecutionEnvironment}
 import org.apache.flink.util.Collector
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-23 8:38 下午
  * @author: <a href=mailto:@>huangyr</a>
  * @Description: Split对数据集按照条件进行拆分，Select根据标签选择数据集
- * *****************************************************************************/
+ */
 object SideOutPutOperator {
 
   // 定义侧输出流

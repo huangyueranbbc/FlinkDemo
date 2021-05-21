@@ -7,7 +7,7 @@ import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironm
 import org.apache.flink.util.Collector
 import org.apache.flink.api.scala._
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-25 7:56 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
@@ -21,7 +21,7 @@ import org.apache.flink.api.scala._
  *               AggregatingState<IN, OUT>: This keeps a single value that represents the aggregation of all values added to the state. Contrary to ReducingState, the aggregate type may be different from the type of elements that are added to the state. The interface is the same as for ListState but elements added using add(IN) are aggregated using a specified AggregateFunction.
  *
  *               MapState<UK, UV>: This keeps a list of mappings. You can put key-value pairs into the state and retrieve an Iterable over all currently stored mappings. Mappings are added using put(UK, UV) or putAll(Map<UK, UV>). The value associated with a user key can be retrieved using get(UK). The iterable views for mappings, keys and values can be retrieved using entries(), keys() and values() respectively. You can also use isEmpty() to check whether this map contains any key-value mappings.
- ******************************************************************************/
+ */
 object KeyedStateDemo {
 
   def main(args: Array[String]): Unit = {

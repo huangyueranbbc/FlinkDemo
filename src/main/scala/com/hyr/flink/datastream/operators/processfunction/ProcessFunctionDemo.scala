@@ -6,7 +6,7 @@ import org.apache.flink.streaming.api.functions.KeyedProcessFunction
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 import org.apache.flink.util.Collector
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-24 8:59 上午
  * @author: <a href=mailto:huangyr>huangyr</a>
@@ -14,7 +14,7 @@ import org.apache.flink.util.Collector
  *               ◆ 访问 Event事件 本身数据（比如：Event 的时间，Event 的当前 Key 等）
  *               ◆ 管理状态 State（仅在 Keyed Stream 中）
  *               ◆ 管理定时器 Timer（包括：注册定时器，删除定时器等）
- * *****************************************************************************/
+ */
 object ProcessFunctionDemo {
 
   // 监控每一个手机，如果在 5 秒内呼叫它的通话都是失败的，发出警告信息。

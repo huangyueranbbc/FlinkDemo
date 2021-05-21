@@ -12,12 +12,12 @@ import org.apache.flink.table.api.bridge.scala.StreamTableEnvironment
 import org.apache.flink.table.api.{EnvironmentSettings, TableConfig}
 import org.apache.flink.types.Row
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-05-13 9:57 下午
  * @author: <a href=mailto:huangyr@com>huangyr</a>
  * @Description: TableAPI的时间窗口和水位线
- * *****************************************************************************/
+ */
 object WindowWithTableAPI {
 
   def main(args: Array[String]): Unit = {

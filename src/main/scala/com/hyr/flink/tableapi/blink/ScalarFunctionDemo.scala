@@ -6,12 +6,12 @@ import org.apache.flink.table.api.EnvironmentSettings
 import org.apache.flink.table.api.bridge.scala.StreamTableEnvironment
 import org.apache.flink.types.Row
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-05-12 8:58 上午
  * @author: <a href=mailto:huangyr@com>huangyr</a>
  * @Description: 标量函数 自定义标量函数可以把 0 到多个标量值映射成 1 个标量值
- * *****************************************************************************/
+ */
 object ScalarFunctionDemo {
 
   def main(args: Array[String]): Unit = {

@@ -2,12 +2,12 @@ package com.hyr.flink.datastream.source
 
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-13 3:44 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 读取文件
- ******************************************************************************/
+ */
 object FileSource {
 
   def main(args: Array[String]): Unit = {

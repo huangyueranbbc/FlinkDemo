@@ -14,12 +14,12 @@ import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 import org.apache.flink.util.Collector
 
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-04-01 3:30 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 滑动窗口的无序的数据流处理。 注：WaterMark只是决定数据窗口是否进行延迟触发。
- ******************************************************************************/
+ */
 object OutOfOrdernessSlidingWaterMarkDemo {
 
   def main(args: Array[String]): Unit = {

@@ -5,12 +5,12 @@ import org.apache.flink.table.api.bridge.scala.StreamTableEnvironment
 import org.apache.flink.table.api.{EnvironmentSettings, Table}
 import org.apache.flink.types.Row
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-05-12 1:57 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: SQL
- * *****************************************************************************/
+ */
 object StreamingCreateTable {
 
   def main(args: Array[String]): Unit = {

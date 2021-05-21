@@ -5,12 +5,12 @@ import org.apache.flink.streaming.api.windowing.assigners.SlidingProcessingTimeW
 import org.apache.flink.streaming.api.windowing.time.Time
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-30 2:11 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 滑动窗口
- ******************************************************************************/
+ */
 object SlidingWindow {
 
   def main(args: Array[String]): Unit = {

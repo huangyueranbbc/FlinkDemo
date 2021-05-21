@@ -4,12 +4,12 @@ import com.hyr.flink.common.StationLog
 import com.hyr.flink.datastream.source.MyCustomSource
 import org.apache.flink.streaming.api.scala.{DataStream, KeyedStream, StreamExecutionEnvironment}
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-18 4:16 下午
  * @author: <a href=mailto:@>huangyr</a>
  * @Description: keyby分区和reduce汇总
- * *****************************************************************************/
+ */
 object KeyByAndReduceOperator {
 
   def main(args: Array[String]): Unit = {

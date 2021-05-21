@@ -2,12 +2,12 @@ package com.hyr.flink
 
 import org.apache.flink.api.scala.ExecutionEnvironment
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-08 9:03 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: Flink批计算WordCount演示 有界流
- ******************************************************************************/
+ */
 object FlinkBatchWordCount {
 
   def main(args: Array[String]): Unit = {

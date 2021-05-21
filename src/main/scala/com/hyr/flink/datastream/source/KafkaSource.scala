@@ -6,14 +6,14 @@ import org.apache.flink.api.common.serialization.SimpleStringSchema
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-13 4:09 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: kafka source 字符串
  *               https://ci.apache.org/projects/flink/flink-docs-release-1.12/zh/dev/connectors/
- * *****************************************************************************/
-object KafkaSource1 {
+ */
+object KafkaSource {
 
   def main(args: Array[String]): Unit = {
     val streamEnv = StreamExecutionEnvironment.getExecutionEnvironment

@@ -5,12 +5,12 @@ import org.apache.flink.streaming.connectors.redis.RedisSink
 import org.apache.flink.streaming.connectors.redis.common.config.FlinkJedisPoolConfig
 import org.apache.flink.streaming.connectors.redis.common.mapper.{RedisCommand, RedisCommandDescription, RedisMapper}
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-13 5:54 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description:
- ******************************************************************************/
+ */
 object RedisSink {
 
   def main(args: Array[String]): Unit = {

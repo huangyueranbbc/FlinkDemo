@@ -13,11 +13,11 @@ import org.apache.flink.streaming.api.windowing.time.Time
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 import org.apache.flink.util.Collector
 
-/** *****************************************************************************
+/**
  * @date 2021-04-13 7:40 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: AllowedLateness  使用Flink的侧面输出功能sideOutputLateData，您可以获取最近被丢弃的数据流。
- * *****************************************************************************/
+ */
 object AllowedLatenessWindow {
 
   // 延迟数据的侧输出流标签

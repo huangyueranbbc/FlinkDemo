@@ -6,12 +6,12 @@ import org.apache.flink.api.common.serialization.SimpleStringSchema
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment, _}
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-13 4:35 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: kafka sink
- ******************************************************************************/
+ */
 object KafkaSink {
 
   def main(args: Array[String]): Unit = {
@@ -22,7 +22,6 @@ object KafkaSink {
 
     //计算
     val words: DataStream[String] = stream.flatMap(_.split(" "))
-
 
     val properties = new Properties
     properties.setProperty("bootstrap.servers", "10.2.98.128:9092")

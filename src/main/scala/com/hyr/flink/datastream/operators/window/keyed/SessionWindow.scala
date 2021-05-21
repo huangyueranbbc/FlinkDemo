@@ -5,12 +5,12 @@ import org.apache.flink.streaming.api.windowing.assigners.{ProcessingTimeSession
 import org.apache.flink.streaming.api.windowing.time.Time
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-30 2:15 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 会话窗口，没有重叠且没有具体的开始时间和结束时间。 当一段时间没有收到数据，会话窗口结束，当收到新的数据，会话窗口开启。
- * *****************************************************************************/
+ */
 object SessionWindow {
 
   def main(args: Array[String]): Unit = {

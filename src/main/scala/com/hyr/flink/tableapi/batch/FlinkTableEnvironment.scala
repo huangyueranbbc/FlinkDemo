@@ -4,12 +4,12 @@ import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 import org.apache.flink.table.api.EnvironmentSettings
 import org.apache.flink.table.api.bridge.scala.StreamTableEnvironment
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-04-23 1:49 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: flink方式创建批量的table环境
- ******************************************************************************/
+ */
 object FlinkTableEnvironment {
 
   def main(args: Array[String]): Unit = {

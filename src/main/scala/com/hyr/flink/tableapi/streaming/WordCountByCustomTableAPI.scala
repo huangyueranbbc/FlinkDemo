@@ -6,12 +6,12 @@ import org.apache.flink.table.api.EnvironmentSettings
 import org.apache.flink.table.api.bridge.scala.StreamTableEnvironment
 import org.apache.flink.types.Row
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-05-11 8:58 下午
  * @author: <a href=mailto:huangyr@com>huangyr</a>
  * @Description: 基于TableAPI实现WordCount
- ******************************************************************************/
+ */
 object WordCountByCustomTableAPI {
 
   def main(args: Array[String]): Unit = {

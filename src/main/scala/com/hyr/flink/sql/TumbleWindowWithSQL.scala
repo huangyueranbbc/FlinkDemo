@@ -12,12 +12,12 @@ import org.apache.flink.table.api.EnvironmentSettings
 import org.apache.flink.table.api.bridge.scala.StreamTableEnvironment
 import org.apache.flink.types.Row
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-05-19 1:57 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 通过SQL实现滚动时间窗口和水位线
- * *****************************************************************************/
+ */
 object TumbleWindowWithSQL {
 
   def main(args: Array[String]): Unit = {

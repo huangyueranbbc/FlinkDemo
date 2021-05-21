@@ -10,12 +10,12 @@ import org.apache.flink.table.api.EnvironmentSettings
 import org.apache.flink.table.api.bridge.scala.StreamTableEnvironment
 import org.apache.flink.types.Row
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-05-12 1:57 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: TableAPI和SQL混用
- ******************************************************************************/
+ */
 object TableAPIWithSQL {
 
   def main(args: Array[String]): Unit = {

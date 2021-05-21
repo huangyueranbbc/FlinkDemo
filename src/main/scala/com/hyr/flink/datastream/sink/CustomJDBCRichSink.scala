@@ -8,7 +8,7 @@ import org.apache.flink.configuration.Configuration
 import org.apache.flink.streaming.api.functions.sink.{RichSinkFunction, SinkFunction}
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-18 1:38 下午
  * @author: <a href=mailto:@>huangyr</a>
@@ -21,7 +21,7 @@ import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
  *               call_time varchar(255),
  *               duration varchar(255)
  *               )
- * *****************************************************************************/
+ */
 object CustomJDBCRichSink {
 
   def main(args: Array[String]): Unit = {

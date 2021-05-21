@@ -5,7 +5,7 @@ import org.apache.flink.streaming.api.windowing.assigners.{TumblingEventTimeWind
 import org.apache.flink.streaming.api.windowing.time.Time
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-30 9:34 上午
  * @author: <a href=mailto:huangyr>huangyr</a>
@@ -18,7 +18,7 @@ import org.apache.flink.streaming.api.windowing.windows.TimeWindow
  *               [.sideOutputLateData(...)] //指定Output Lag（可选）
  *               .reduce/aggregate/fold/apply() //指定窗口计算函数
  *               [.getSideOutput(...)] //根据Tag输出数据（可选）
- * *****************************************************************************/
+ */
 
 object TumblingWindow {
 

@@ -12,12 +12,12 @@ import org.apache.flink.table.api.EnvironmentSettings
 import org.apache.flink.table.api.bridge.scala.StreamTableEnvironment
 import org.apache.flink.types.Row
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-05-19 3:58 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 通过SQL实现滑动时间窗口和水位线
- ******************************************************************************/
+ */
 object HopWindowWithSQL {
 
   def main(args: Array[String]): Unit = {

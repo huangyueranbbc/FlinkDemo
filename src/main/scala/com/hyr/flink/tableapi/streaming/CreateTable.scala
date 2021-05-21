@@ -6,12 +6,12 @@ import org.apache.flink.table.api.{DataTypes, EnvironmentSettings, TableResult}
 import org.apache.flink.table.descriptors.{Csv, FileSystem, Schema}
 import org.apache.flink.table.sources.CsvTableSource
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-05-12 1:57 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description:
- * *****************************************************************************/
+ */
 object CreateTable {
 
   def main(args: Array[String]): Unit = {

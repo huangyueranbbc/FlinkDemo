@@ -31,4 +31,7 @@
         Watermark = 进入 Flink 的最大的事件时间（mxtEventTime）— 指定的延迟时间（t）
         如果有窗口的停止时间等于或者小于 maxEventTime – t（当时的 warkmark），那么 这个窗口被触发执行。 注意：Watermark 本质可以理解成一个延迟触发机制。
     b.allowedlateness
+8.TableAPI  
+9.SQL  
+10.Complex event processing复杂事件处理CEP  
 ```

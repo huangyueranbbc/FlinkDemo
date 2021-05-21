@@ -3,12 +3,12 @@ package com.hyr.flink.datastream.source
 import com.hyr.flink.common.StationLog
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-13 4:02 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 集合
- * *****************************************************************************/
+ */
 object CollectionSource {
 
   def main(args: Array[String]): Unit = {

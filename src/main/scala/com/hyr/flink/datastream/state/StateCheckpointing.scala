@@ -5,7 +5,7 @@ import org.apache.flink.streaming.api.CheckpointingMode
 import org.apache.flink.streaming.api.environment.CheckpointConfig.ExternalizedCheckpointCleanup
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-29 3:34 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
@@ -17,7 +17,7 @@ import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
  *               并将编号的 checkpoint barriers 插入到它们的流中。这些 barriers 流经 job graph，标注每个 checkpoint 前后的流部分。
  *               当 job graph 中的每个 operator 接收到 barriers 时，它就会记录下其状态checkpoint。
  *               拥有两个输入流的 Operators（例如 CoProcessFunction）会执行 barrier 对齐（barrier alignment） 以便当前快照能够包含消费两个输入流 barrier 之前（但不超过）的所有 events 而产生的状态。
- ******************************************************************************/
+ */
 object StateCheckpointing {
 
   def main(args: Array[String]): Unit = {

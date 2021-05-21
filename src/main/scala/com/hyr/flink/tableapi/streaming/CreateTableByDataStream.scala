@@ -5,12 +5,12 @@ import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 import org.apache.flink.table.api.bridge.scala.StreamTableEnvironment
 import org.apache.flink.table.api.{EnvironmentSettings, Table, TableResult}
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-05-11 1:57 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 流转换为Table
- ******************************************************************************/
+ */
 object CreateTableByDataStream {
 
   def main(args: Array[String]): Unit = {

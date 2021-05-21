@@ -5,12 +5,12 @@ import org.apache.flink.table.functions.TableFunction
 import org.apache.flink.types.Row
 
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-05-11 9:01 下午
  * @author: <a href=mailto:huangyr@com>huangyr</a>
  * @Description: 自定义Table函数
- ******************************************************************************/
+ */
 class MyFlatMapFunction extends TableFunction[Row] {
 
 

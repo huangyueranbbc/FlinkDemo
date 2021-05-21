@@ -10,12 +10,12 @@ import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 import org.apache.flink.util.Collector
 import org.slf4j.{Logger, LoggerFactory}
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-30 8:02 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: ProcessWindowFunction全量窗口函数
- ******************************************************************************/
+ */
 object ProcessWindowFunctionDemo {
 
   private val log: Logger = LoggerFactory.getLogger(ProcessWindowFunctionDemo.getClass)

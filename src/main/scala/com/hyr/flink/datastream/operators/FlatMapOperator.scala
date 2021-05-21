@@ -6,12 +6,12 @@ import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironm
 
 import scala.collection.mutable.ArrayBuffer
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-18 4:01 下午
  * @author: <a href=mailto:@>huangyr</a>
  * @Description: FlatMap
- ******************************************************************************/
+ */
 object FlatMapOperator {
 
   def main(args: Array[String]): Unit = {

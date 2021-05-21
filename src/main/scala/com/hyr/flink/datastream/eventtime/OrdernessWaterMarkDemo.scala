@@ -10,12 +10,12 @@ import org.apache.flink.streaming.api.windowing.time.Time
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 import org.apache.flink.util.Collector
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-04-01 3:30 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 有序的数据流处理
- ******************************************************************************/
+ */
 object OrdernessWaterMarkDemo {
 
   def main(args: Array[String]): Unit = {

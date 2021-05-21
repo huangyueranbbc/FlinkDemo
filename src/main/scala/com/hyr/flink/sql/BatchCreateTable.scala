@@ -4,12 +4,12 @@ import org.apache.flink.api.scala.ExecutionEnvironment
 import org.apache.flink.table.api.TableResult
 import org.apache.flink.table.api.bridge.scala.BatchTableEnvironment
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-05-12 1:57 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 批量离线方式SQL
- * *****************************************************************************/
+ */
 object BatchCreateTable {
 
   def main(args: Array[String]): Unit = {

@@ -6,12 +6,12 @@ import org.apache.flink.streaming.api.scala._
 
 import scala.util.Random
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-13 4:59 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: 自定义的Source,需求：每隔两秒钟，生成10条随机基站通话日志数据
- ******************************************************************************/
+ */
 object CustomSource {
 
   def main(args: Array[String]): Unit = {

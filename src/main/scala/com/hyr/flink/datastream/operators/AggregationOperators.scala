@@ -2,12 +2,12 @@ package com.hyr.flink.datastream.operators
 
 import org.apache.flink.streaming.api.scala.{DataStream, KeyedStream, StreamExecutionEnvironment}
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-22 4:57 下午
  * @author: <a href=mailto:@>huangyr</a>
  * @Description: 聚合算子
- ******************************************************************************/
+ */
 object AggregationOperators {
 
   def main(args: Array[String]): Unit = {

@@ -10,13 +10,13 @@ import org.apache.kafka.common.serialization.StringDeserializer
 
 import org.apache.flink.streaming.api.scala._
 
-/** *****************************************************************************
+/**
  *
  * @date 2021-03-13 4:09 下午
  * @author: <a href=mailto:huangyr>huangyr</a>
  * @Description: kafka source key-value
  *               https://ci.apache.org/projects/flink/flink-docs-release-1.12/zh/dev/connectors/
- ******************************************************************************/
+ */
 object KafkaSourceByKeyValue {
 
   //自定义一个类，从Kafka中读取键值对的数据
