@@ -17,7 +17,8 @@
     </properties>
 
     <dependencies>
-        <!-- <dependency>
+        <!--
+        <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
             <version>${flink.version}</version>
@@ -26,7 +27,8 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java_2.11</artifactId>
             <version>${flink.version}</version>
-        </dependency> -->
+        </dependency>
+        -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-scala_2.11</artifactId>
@@ -124,6 +126,38 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-csv</artifactId>
             <version>1.12.0</version>
+        </dependency>
+
+        <!-- iceberg -->
+        <!-- https://mvnrepository.com/artifact/org.apache.iceberg/iceberg-flink -->
+        <dependency>
+            <groupId>org.apache.iceberg</groupId>
+            <artifactId>iceberg-flink</artifactId>
+            <version>0.11.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-hive -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-hive_2.11</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-hadoop-fs -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-hadoop-fs</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.hive/hive-metastore -->
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-metastore</artifactId>
+            <version>2.3.8</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-runtime -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-runtime_2.11</artifactId>
+            <version>${flink.version}</version>
         </dependency>
     </dependencies>
 

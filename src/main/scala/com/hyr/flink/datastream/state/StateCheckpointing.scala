@@ -1,5 +1,6 @@
 package com.hyr.flink.datastream.state
 
+import org.apache.flink.configuration.{Configuration, RestOptions}
 import org.apache.flink.runtime.state.filesystem.FsStateBackend
 import org.apache.flink.streaming.api.CheckpointingMode
 import org.apache.flink.streaming.api.environment.CheckpointConfig.ExternalizedCheckpointCleanup
@@ -21,7 +22,10 @@ import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 object StateCheckpointing {
 
   def main(args: Array[String]): Unit = {
-    val streamEnv: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
+    val conf: Configuration = new Configuration()
+    // 自定义web端口
+    conf.setInteger(RestOptions.PORT, 9000)
+    val streamEnv: StreamExecutionEnvironment = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(conf)
 
     // 每 1000ms 开始一次 checkpoint
     streamEnv.enableCheckpointing(1000)
