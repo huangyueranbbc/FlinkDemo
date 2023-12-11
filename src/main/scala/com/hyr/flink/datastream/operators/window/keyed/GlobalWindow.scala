@@ -34,7 +34,6 @@ object GlobalWindow {
         (_, 1)
       }
       .keyBy(_._1)
-      // 设置间隔5秒的滑动窗口
       .window(GlobalWindows.create())
       .trigger(new ProcessTimeTrigger)
 

@@ -21,6 +21,7 @@ object SessionWindow {
     val stream: DataStream[String] = streamEnv.socketTextStream("127.0.0.1", 8888)
 
     // 统计会话内的单词出现次数，如果10秒没有新的输入，则结束会话窗口。当有新的单词输入，开启新的会话窗口。
+    // 注:根据相同key分区计算，某个key没有数据才会触发，并不是全局。
     val windowData: WindowedStream[(String, Int), String, TimeWindow] = stream
       .flatMap {
         _.toLowerCase.split(" ").filter {
